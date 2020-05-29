@@ -1,1 +1,26 @@
+<b>Instructions</b><br><br>Use the sliders on the left to manipulate the model parameters, as well as the fraction of the population not susceptible (e.g. via vaccination), and the fraction of the population that goes under quarantine after becoming infective.<br><br>Use the sliders on the right to assess the impact of reducing &beta; for a range of days, and for the impact of a “phased” value of &beta; for the days following this range of days.  The factor selected in these sliders is used to multiply the base value of &beta;.<br><br>As shown in the schematic, &alpha; is the speed at which an exposed person becomes infective, &lambda; is the speed an infective person becomes no longer infective (assuring they are not quarantined), &gamma; is the speed infectives go to quarantine (for the fraction &phi; that become quarantined), &delta; is the speed a quarantined individual becomes recovered, and &beta; can be considered the product of the average number of interactions for an individual and the transmittability of these interactions (i.e. the fraction of interactions between an infective person and a susceptible person which leads to the susceptible person going from “S” to “E”).<br><br>
+<b>Some questions inspired by manipulating the model parameters</b>
+<ol>
+<li>Which model parameters can be manipulated and which are outside human control?</li>
+<li>&beta; seems very important…how can the value of &beta; be reduced? </li>
+<li>What is the value of &beta;  in the absence of any mitigation; to what degree did lockdowns reduce &beta;, how much does mask-wearing reduce &beta;? </li>
+<li>The model treats the values of the model parameters as constant within the population.  Clearly, &beta; is not constant, as it is a function of individual behavior, as well as other regional differences such as population density. Also, a constant value of &beta; assumes that each infected individual has the same “transmittability” of the virus.  What impact do all these assumptions have on the actual spread of the virus as compared to what a model would predict? </li>
+<li>Are there other implicit, non-obvious assumptions in the model? </li>
+<li>How do we know when “Day 1” was…when the first infective person entered the population being evaluated? </li>
+<li>How do we know where on the “curve” we currently stand, when there are uncertainties about the number of infected and recovered cases in the population? </li>
+<li>How large of an area one should lump together when analyzing data, if different areas have different “Day 1”s and different values of &beta;? </li>
+<li>How would the prevalence of asymptomatic but infective cases impact a model-based analysis? </li>
+</ol>
+<br>
+And, according to the model:<br>
+<ol>
+<li>How do the (relative) values of the model parameters affect the speed of infection spread? </li>
+<li>How do the (relative) values of the model parameters affect the ultimate fraction of the population that becomes infected? </li>
+<li>Does flattening the curve by reducing interactions change the ultimate number of people who get infected, or just delay the spread? </li>
+<li>How does quarantining people once they know they are infected reduce the spread?</li>
+<li>How would speeding up the time from infection to recovery (e.g. via some effective pharmaceutical agent) affect the spread of the virus? </li>
+<li>Besides the obvious benefit of saving lives, how does the introduction of a vaccine affect the spread of the virus to those not vaccinated? </li>
+<li>How do the values of other parameters impact the penetration of vaccination required to get to “herd immunity" (when a new infection can’t spread exponentially but instead rapidly dies out)? </li>
+</ol>
+<br><br>
 Here is the actual model in terms of the calculus:<br><br>dS/dT = -&beta;SI/N<br><br>dE/dt = &beta;SI/N – &alpha;E<br><br>dI/dT =  &alpha;E – [(&phi;&gamma;I) + (&lambda;(1 - &phi;)I)<br><br>dQ/dt = &phi;&gamma;I - &delta;Q<br><br>dR/dt = &delta;Q + &lambda;(1 - &phi;)I<br><br><p>Solved via semi-implicit Euler method with time step = 0.1 days (see <a href="https://towardsdatascience.com/social-distancing-to-slow-the-coronavirus-768292f04296">Hobbs, 2020</a>).
