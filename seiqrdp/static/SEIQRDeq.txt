@@ -10,6 +10,7 @@
 <li>How do we know where on the “curve” we currently stand, when there are uncertainties about the number of infected and recovered cases in the population? </li>
 <li>How large of an area one should lump together when analyzing data, if different areas have different “Day 1”s and different values of &beta;? </li>
 <li>How would the prevalence of asymptomatic but infective cases impact a model-based analysis? </li>
+<li>What if not everyone is equally susceptible to becoming infective?</li>
 </ol>
 <br>
 And, according to the model:<br>
