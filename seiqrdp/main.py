@@ -129,11 +129,16 @@ with open ("seiqrdp/static/SEIQRDtop.txt", "r") as myfile:
     
 with open ("seiqrdp/static/SEIQRDeq.txt", "r") as myfile:
     textbottom=myfile.read()
-    
+
+with open ("seiqrdp/static/SEIRintro.txt", "r") as myfile:
+    textintro=myfile.read()
+
+divintro = Div(text=textintro, sizing_mode="scale_width")
 divtop = Div(text=texttop, sizing_mode="scale_width", width=200)      
 divschematic=Div(text="<img src='seiqrdp/static/SEIQRDP.png' width=600>", width=200)
 divbottom = Div(text=textbottom, sizing_mode="scale_width", width=200)
 
+curdoc().add_root(divintro)
 curdoc().add_root(row(divtop,divschematic))
 # curdoc().add_root(divschematic)
 curdoc().add_root(row(inputs,plot,inputsright))
